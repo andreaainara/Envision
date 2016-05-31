@@ -1,20 +1,25 @@
 class SessionsController < ApplicationController
-  def login (user)
-    session[:user_id] = user.id
-    @current_user = user
+  def new
+    @user = User.new
+    render :new
   end
 
-  def current_user
-    @current_user ||= User.find_by_id(session[:user_id])
-  end
-
-  def logged_in?
-    if current_user == nil
+  def create
+    user_params = params.require(:user).permit(:email, :password)
+    @user = User.confirm(user_params)
+    if @user
+      login(@user)
+      flash[:success] = "You have successfully logged in."
+      redirect_to user_path(@user)
+    else
       redirect_to login_path
     end
   end
 
-  def logout
-    @current_user = session[:user_id] = nil
+  def destroy
+    logout
+    flash[:success] = "You have successfully logged out."
+    redirect_to root_path
   end
+
 end
