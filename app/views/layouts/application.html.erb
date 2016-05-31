@@ -7,16 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav>
-    <% if current_user %>
-    <%= link_to "Log Out", logout_path %> |
-    <%= link_to "Profile", user_path(@user) %>
-    <% else %>
-    <%= link_to "Log In", login_path %> |
-    <%= link_to "Sign Up", new_user_path %>
-    <% end %>
-  </nav>
-
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <% if current_user %>
+      <%= link_to "Log Out", logout_path %> |
+      <%= link_to "Profile", user_path(@user) %>
+      <% else %>
+      <%= link_to "Log In", login_path %> |
+      <%= link_to "Sign Up", new_user_path %>
+      <% end %>
+  </div>
+</nav>
 <%= yield %>
 
 </body>

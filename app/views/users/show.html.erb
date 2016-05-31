@@ -1,1 +1,14 @@
-Welcome <%= @user.first_name %>!
+<div class="col-md-4">Welcome <strong><%= @user.first_name %> <%= @user.last_name%></strong>!<br>
+  <div class="container">
+    <br>
+    <strong>About: </strong>"<%= @user.blurb %>"<br>
+    <strong>Current City: </strong><%= @user.current_city %><br>
+    <%# link_to "Edit", edit_user_path(@user) %>
+  </div>
+</div>
+<br>
+<div class="col-md-8">
+  <div class="container">
+      ~boards go here~
+  </div>
+</div>

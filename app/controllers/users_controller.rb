@@ -30,10 +30,10 @@ class UsersController < ApplicationController
     render :show
   end
 
-  def edit
-    user_id = params[:id]
-    @user = User.find_by_id(user_id)
-  end
+  # def edit
+  #   user_id = params[:id]
+  #   @user = User.find_by_id(user_id)
+  # end
 
   def update
      user_id = params[:id]
