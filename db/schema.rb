@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601191739) do
+ActiveRecord::Schema.define(version: 20160601192010) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20160601191739) do
   end
 
   add_index "boards", ["user_id"], name: "index_boards_on_user_id"
+
+  create_table "cards", force: :cascade do |t|
+    t.string   "picture"
+    t.string   "text"
+    t.integer  "board_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cards", ["board_id"], name: "index_cards_on_board_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
