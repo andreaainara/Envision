@@ -1,23 +1,28 @@
 class BoardsController < ApplicationController
+  def index
+    @boards = Board.all
+    render :index
+  end
+
   def new
     @board = Board.new
-    render :new
+    render action: :new
   end
 
   def create
-    board_params = params.require(:board).permit(:name, :card)
+    board_params = params.require(:board).permit(:name)
     @board = Board.create(board_params)
     if @board.save
       flash[:success] = "Board created successfully!"
-      redirect_to user_path(@user)
+      redirect_to boards_path
     else
-      render :new
+      render action: :new
     end
   end
 
   def show
-    board_id = board.id
-    @board = Board.find(board_id)
+    @board = Board.find_by_id(params[:id])
+    board_id = @board.id
     render :show
   end
 
