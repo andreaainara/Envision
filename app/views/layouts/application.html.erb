@@ -2,12 +2,23 @@
 <html>
 <head>
   <title>Envision</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <% if current_user %>
+      <%= link_to "Log Out", logout_path, html: {class: "btn btn-info"} %> |
+      <%= link_to "Profile", user_path(current_user), html: {class: "btn btn-success"} %>
+      <% else %>
+      <%= link_to "Log In", login_path %> |
+      <%= link_to "Sign Up", new_user_path %>
+      <% end %>
+  </div>
+</nav>
 <%= yield %>
 
 </body>

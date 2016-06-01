@@ -1,0 +1,19 @@
+<div class="panel-body">
+  <div class="col-md-6">
+    <h3>Welcome <strong><%= @user.first_name %> <%= @user.last_name%></strong>!</h3>
+    <div class="container">
+      <br>
+      <strong>About: </strong>"<%= @user.blurb %>"<br>
+      <strong>Current City: </strong><%= @user.current_city %><br>
+      <%= link_to "Edit", edit_user_path(@user) %>
+    </div>
+  </div>
+</div>
+<br>
+<div class="panel-body" style="margin-left: 600px">
+  <div class="col-md-6">
+    <div class="container">
+        ~boards go here~
+    </div>
+  </div>
+</div>
