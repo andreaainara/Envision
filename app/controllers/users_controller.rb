@@ -30,18 +30,24 @@ class UsersController < ApplicationController
     render :show
   end
 
-  # def edit
-  #   user_id = params[:id]
-  #   @user = User.find_by_id(user_id)
-  # end
+  def edit
+    render action: :edit
+  end
 
   def update
-     user_id = params[:id]
-     user = User.find_by_id(user_id)
-     user_params = params.require(:user).permit(:first_name, :last_name, :current_city, :email, :picture)
-     user.update_attributes(user_params)
-     flash[:success] = "Update successful!"
-     redirect_to user_path(user)
+   @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to(@user)
+    else
+      render action: :edit
+    end
+  end
+
+  def destroy
+   @user = User.find_by_id(params[:id])
+   # post_id=@post[:post_id]
+   @user.destroy(current_user)
+   redirect_to root_path
   end
 
   private
