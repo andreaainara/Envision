@@ -3,7 +3,7 @@
     <h3>Welcome <strong><%= @user.first_name %> <%= @user.last_name%></strong>!</h3>
     <div class="container">
       <br>
-      <strong>About: </strong>"<%= current_user.blurb %>"<br>
+      <strong>About: </strong>"<%= @user.blurb %>"<br>
       <strong>Current City: </strong><%= @user.current_city %><br>
       <%= link_to "Edit", edit_user_path(@user) %>
     </div>

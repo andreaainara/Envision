@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user_params = params.require(:user).permit(:first_name, :last_name, :current_city, :email, :password)
+    user_params = params.require(:user).permit(:first_name, :last_name, :current_city, :blurb, :email, :password)
     @user = User.create(user_params)
     if @user.save
       login(@user)
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :password_digest)
+      params.require(:user).permit(:first_name, :last_name, :email, :current_city, :blurb, :password_digest)
     end
 
 end
