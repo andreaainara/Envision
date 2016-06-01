@@ -43,13 +43,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-   @user = User.find_by_id(params[:id])
-   # post_id=@post[:post_id]
-   @user.destroy(current_user)
-   redirect_to root_path
-  end
-
   private
 
     def set_user
