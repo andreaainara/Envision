@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-  render :index
+    render :index
   end
 
   def new
@@ -24,9 +24,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    user_id = current_user.id
-
-    @user = User.find(user_id)
+    @user = current_user
+    @boards = current_user.boards
     render :show
   end
 
@@ -48,7 +47,6 @@ class UsersController < ApplicationController
     def set_user
       User.find(params[:id])
     end
-
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

@@ -1,11 +1,7 @@
-<div class="col-md-6">
-  <div class="boards">
-    <% @boards.each do |board| %>
-      <p>
-        <strong><%= link_to board.name, board_path(board.user, board) %></strong> |
-        <%= link_to "Edit Board", edit_board_path(board.user, board) %> |
-        <%= link_to "Delete", delete_board_path(board.user, board), method: :delete %> <br>
-      </p>
-    <% end %>
-  </div>
-</div>
+<% @boards.each do |board| %>
+  <p>
+    <strong><%= link_to board.name, board_path(board.user, board) %></strong> |
+    <%= link_to "Edit Board", edit_board_path(board.user, board) %> |
+    <%= link_to "Delete", delete_board_path(board.user, board), method: :delete %> <br>
+  </p>
+<% end %>

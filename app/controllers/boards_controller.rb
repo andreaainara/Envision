@@ -39,7 +39,7 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:board_id])
     if @board.update(board_params)
       @board.user = current_user
-      redirect_to boards_path
+      redirect_to user_path
     else
       render :edit
     end

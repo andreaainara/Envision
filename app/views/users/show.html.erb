@@ -13,6 +13,13 @@
 <div class="panel-body" style="margin-left: 600px">
   <div class="col-md-6">
     <div class="container">
+      <% @boards.each do |board| %>
+        <p>
+          <strong><%= link_to board.name, board_path(board.user, board) %></strong> |
+          <%= link_to "Edit Board", edit_board_path(board.user, board) %> |
+          <%= link_to "Delete", delete_board_path(board.user, board), method: :delete %> <br>
+        </p>
+      <% end %>
       <%= link_to "New Board", new_board_path, class: "glyphicon glyphicon-plus-sign btn btn-default btn-lg" %>
     </div>
   </div>
