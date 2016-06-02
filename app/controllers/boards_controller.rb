@@ -11,7 +11,8 @@ class BoardsController < ApplicationController
 
   def create
     board_params = params.require(:board).permit(:name)
-    @board = Board.create(board_params)
+    @board = Board.new(board_params)
+    @board.user = current_user
     if @board.save
       flash[:success] = "Board created successfully!"
       redirect_to boards_path
@@ -21,8 +22,8 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find_by_id(params[:id])
-    board_id = @board.id
+    @board = Board.find_by_id(params[:board_id])
+    # board_id = @board.id
     render :show
   end
 
@@ -31,7 +32,7 @@ class BoardsController < ApplicationController
   end
 
   def update
-    @board = Board.find(params[:id])
+    @board = Board.find(params[:board_id])
     if @board.update(board_params)
       redirect_to(@board)
     else
@@ -40,9 +41,9 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    @board = Board.find_by_id(params[:id])
-    @board.destroy(board)
-    redirect_to user_path(@user)
+    @board = Board.find(params[:board_id])
+    @board.destroy
+    redirect_to boards_path
   end
 
 end

@@ -13,7 +13,9 @@
 <div class="panel-body" style="margin-left: 600px">
   <div class="col-md-6">
     <div class="container">
-        <%= link_to "New Board", new_board_path %>
+      <%= link_to new_board_path, class: "btn btn-lg" do %>
+        <i class="glyphicon glyphicon-plus-sign">New Board</i>
+      <% end %>
     </div>
   </div>
 </div>
