@@ -1,0 +1,13 @@
+<%= form_for @board, url: board_path(@board.user, @board) do |f| %>
+  <div class="col-md-6">
+    <fieldset>
+      <div class="control-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="control-actions">
+        <%= f.submit "Save" %>
+      </div>
+    </fieldset>
+  </div>
+<% end %>
