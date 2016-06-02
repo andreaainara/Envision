@@ -25,7 +25,8 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find_by_id(params[:board_id])
-
+    @cards = Card.all
+    @card = Card.new
     render :show
   end
 

@@ -1,5 +1,19 @@
-<div class="card small">
+<div class="container">
 
-<p><%= link_to new_card_path,class: "glyphicon glyphicon-plus-sign btn btn-default btn-lg" do %><% end %></p>
+  <div class="row">
+    <div class="card col-md-3">
+
+    <p><%= link_to new_card_path,class: "glyphicon glyphicon-plus-sign btn btn-default btn-lg" do %><% end %></p>
+
+    </div>
+
+    <% @cards.each do |card| %>
+    <div class="card col-md-3">
+      <p><%= link_to "x", delete_card_path(card.board, card), method: :delete %></p>
+      <p><%= card.picture %><br>
+        <%= card.text %><br></p>
+    </div>
+    <% end %>
+  </div>
 
 </div>

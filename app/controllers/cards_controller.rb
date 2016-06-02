@@ -3,10 +3,16 @@ before_action :set_board, only: [:show]
 before_action :set_card, only: [:show, :edit, :update, :destroy]
 
 
-# I want to be the cards#create form to be in a modal,
+  # def initialize
+  #   @@cards
+  #   @@cards = Card.all
+  # end
+
+# I want the cards#create form to be in a modal,
 # so as to limit the number of pages...
   def new
     @card = Card.new
+    @board = Board.find_by_id(params[:board_id])
     render :new
   end
 
@@ -15,12 +21,14 @@ before_action :set_card, only: [:show, :edit, :update, :destroy]
     @board = Board.find(params[:board_id])
     @card = Card.new(card_params)
     @card.board = @board
+    @board.user = current_user
+    @cards = Card.all
     if @card.save
 
-      
-      redirect_to board_path(@board)
+
+      redirect_to board_path(@board.user, @card.board)
     else
-      render 'boards/show'
+      render :new
     end
   end
 
@@ -42,25 +50,27 @@ before_action :set_card, only: [:show, :edit, :update, :destroy]
   def destroy
     @board = Board.find(params[:board_id])
     @card = Card.find(params[:card_id])
+    @card.board = @board
     @card.destroy
     redirect_to board_path(@board)
   end
 
+
   private
 
-  def set_board
-    Board.find(params[:board_id])
-  end
+    def set_board
+      Board.find(params[:board_id])
+    end
 
-  def set_card
-    Card.find(params[:card_id])
-  end
+    def set_card
+      Card.find(params[:card_id])
+    end
 
-  def card_params
-    params.require(:card).permit(:picture, :text)
-  end
+    def card_params
+      params.require(:card).permit(:picture, :text)
+    end
 
-  def board_params
-    params.require(:board).permit(:name)
-  end
+    def board_params
+      params.require(:board).permit(:name)
+    end
 end

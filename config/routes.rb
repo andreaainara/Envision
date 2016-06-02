@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   delete "/users/:id/boards/:board_id", to: "boards#destroy", as: "delete_board"
 
   get "/boards/:board_id/cards/new", to: "cards#new", as: "new_card"
-  post "/boards/:board_id", to: "cards#create"
+  post "/boards/:board_id/cards", to: "cards#create", as: "board_cards"
   get "/boards/:board_id/cards/:card_id", to: "cards#show", as: "card"
   get "/boards/:board_id/cards/:card_id/edit", to: "cards#edit", as: "edit_card"
   patch "/boards/:board_id/cards/:card_id", to: "cards#update"
