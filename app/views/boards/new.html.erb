@@ -1,7 +1,14 @@
-<div class="header" style="margin-left: 688px">
-  Save | Back
-</div>
+<%= form_for @board do |f| %>
 
-<div class="card small">
-    <p><%= link_to "New Card", new_card_path %></p>
+<div class="col-md-6">
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="control-actions">
+      <%= f.submit "Save" %>
+    </div>
+  </fieldset>
 </div>
+<% end %>
