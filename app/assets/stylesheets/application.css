@@ -41,9 +41,19 @@ img {
   height: 170px;
 }
 
-.app_about {
+#app_about {
   word-wrap: break-word;
 }
-.about_img {
+.app_img {
   float: right;
+  height: 150px;
+  width: 150px;
+}
+.about_img {
+  float: left;
+  height: 150px;
+  width: 150px;
+}
+#about_me {
+  word-wrap: break-word;
 }
