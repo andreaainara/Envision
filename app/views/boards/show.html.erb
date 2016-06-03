@@ -10,14 +10,14 @@
     <% @cards.each do |card| %>
     <% if card.picture == nil %>
     <div class="card col-md-3">
-      <p><%= link_to "x", delete_card_path(card.board, card), method: :delete %></p>
-        <%= card.text %><br></p>
+      <p id="delete_link"><%= link_to "x", delete_card_path(card.board, card), method: :delete %></p>
+        <p><%= card.text %><br></p>
     </div>
     <% else %>
     <div class="card col-md-3">
-      <p><%= link_to "x", delete_card_path(card.board, card), method: :delete %></p>
+      <p id="delete_link"><%= link_to "x", delete_card_path(card.board, card), method: :delete %></p>
       <p><img src="<%= card.picture %>" class="height: 150px width:100px"/><br>
-        <%= card.text %><br></p>
+        <p><%= card.text %><br></p>
     </div>
     <% end %>
     <% end %>

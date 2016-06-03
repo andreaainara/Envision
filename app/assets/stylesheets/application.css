@@ -18,6 +18,9 @@
 .p {
   padding-top: 150px;
 }
+#delete_link {
+  padding-top: 0px;
+}
 
 img {
   width: 100px;
