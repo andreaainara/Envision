@@ -18,12 +18,16 @@
                 <%= link_to "Log Out", logout_path, class: "btn btn-info" %>
 
                 <%= link_to "Profile", user_path(current_user), class: "btn btn-success" %>
+
+                <%= link_to "About", about_path, class: "btn btn-danger" %>
             <% else %>
                 <%= link_to "Envision", root_path, class: "btn btn-primary" %>
 
                 <%= link_to "Log In", login_path, class: "btn btn-success" %>
 
                 <%= link_to "Sign Up", new_user_path, class: "btn btn-info" %>
+
+                <%= link_to "About", about_path, class: "btn btn-danger" %>
                 <% end %>
             </div>
         </nav>
