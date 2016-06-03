@@ -1,7 +1,7 @@
 <%= form_for [@board, @card] do |f| %>
   <%= f.label :photo_URL %>
-  <%= f.text_field :picture %><br>
+  <%= f.text_field :picture, class: "form-control" %><br>
   <%= f.label :caption %>
-  <%= f.text_area :text %><br>
-  <%= f.submit "Save" %>
+  <%= f.text_area :text, class: "form-control" %><br>
+  <%= f.submit "Add", class: "btn btn-default" %>
 <% end %>

@@ -1,11 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @boards = Board.all
-    render :index
-  end
-
   def new
     @board = Board.new
     render action: :new
@@ -17,7 +12,7 @@ class BoardsController < ApplicationController
     @board.user = current_user
     if @board.save
       flash[:success] = "Board created successfully!"
-      redirect_to boards_path
+      redirect_to user_path(current_user)
     else
       render action: :new
     end
@@ -25,7 +20,7 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find_by_id(params[:board_id])
-    @cards = Card.all
+    @cards = Card.where(board_id: @board.id)
     @card = Card.new
     render :show
   end
@@ -49,7 +44,7 @@ class BoardsController < ApplicationController
   def destroy
     @board = Board.find(params[:board_id])
     @board.destroy
-    redirect_to boards_path
+    redirect_to user_path(current_user)
   end
 
   private
