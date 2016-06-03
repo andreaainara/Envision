@@ -43,6 +43,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board = Board.find(params[:board_id])
+    @board.user = current_user
     @board.destroy
     redirect_to user_path(current_user)
   end
