@@ -1,26 +1,51 @@
-<div class="panel-body">
-  <div class="col-md-6">
-    <h3>Welcome <strong><%= @user.first_name %> <%= @user.last_name%></strong>!</h3>
-    <div class="container">
-      <br>
-      <strong>About: </strong>"<%= @user.blurb %>"<br>
-      <strong>Current City: </strong><%= @user.current_city %><br>
-      <%= link_to "Edit", edit_user_path(@user) %>
+<div class="container">
+    <div class="col-md-6">
+        <h3>Welcome
+            <strong><%= @user.first_name %>
+                <%= @user.last_name%></strong>!</h3>
+
+        <div class="panel panel-danger col-md-8">
+            <div class="panel-heading">
+                <h3 class="panel-title">Info</h3>
+            </div>
+            <div class="panel-body">
+                <strong>About:
+                </strong>"<%= @user.blurb %>"<br>
+                <strong>Current City:
+                </strong><%= @user.current_city %><br>
+                <center><%= link_to "Edit", edit_user_path(@user) %></center>
+            </div>
+        </div>
+
     </div>
-  </div>
-</div>
-<br>
-<div class="panel-body" style="margin-left: 600px">
-  <div class="col-md-6">
-    <div class="container">
-      <% @boards.each do |board| %>
-        <p>
-          <strong><%= link_to board.name, board_path(board.user, board) %></strong> |
-          <%= link_to "Edit Board", edit_board_path(board.user, board) %> |
-          <%= link_to "Delete", delete_board_path(board.user, board), method: :delete %> <br>
-        </p>
-      <% end %>
-      <%= link_to "New Board", new_board_path, class: "glyphicon glyphicon-plus-sign btn btn-default btn-lg" %>
+
+    <div class="container col-md-6">
+      <div class="panel panel-primary col-md-4">
+          <div class="panel-heading">
+
+          </div>
+          <div class="panel-body">
+              <%= link_to " New", new_board_path, class: "glyphicon glyphicon-plus-sign btn btn-primary" %>
+          </div>
+      </div>
+        <% @boards.each do |board| %>
+
+        <div class="panel panel-info col-md-4">
+            <div class="panel-heading">
+                <h3 class="panel-title">Boards</h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    <strong><%= link_to board.name, board_path(board.user, board) %></strong>
+                    |
+                    <%= link_to "Edit Board", edit_board_path(board.user, board) %>
+                    |
+                    <%= link_to "Delete", delete_board_path(board.user, board), method: :delete %>
+                    <br>
+                </p>
+            </div>
+        </div>
+        <% end %>
+
     </div>
-  </div>
 </div>
