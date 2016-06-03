@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
 
   def new
     @board = Board.new
-    render action: :new
+    render :new
   end
 
   def create
@@ -14,7 +14,7 @@ class BoardsController < ApplicationController
       flash[:success] = "Board created successfully!"
       redirect_to user_path(current_user)
     else
-      render action: :new
+      render :new
     end
   end
 
