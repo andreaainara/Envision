@@ -3,13 +3,17 @@
  *= require_tree .
  *= require_self
  */
-.jumbotron {
-  background-image: image('envision_jumbotron_pic.png');
-}
+ .jumbotron {
+   background-image: url('http://1.bp.blogspot.com/-Uo7BSshm8mo/UpakUEfKeZI/AAAAAAAADXg/42DX9TlOQfQ/s1600/WP_20131127_13_36_08_Pro.jpg');
+   height: 400px;
+   color: snow;
+   text-shadow: 1.5px 1.5px #000000;
+   margin-top: -30px;
+ }
 
-.panel-body {
+/*.panel-body {
   width: 600px;
-}
+}*/
 .add-card {
   background-color: rgba(26, 207, 251, 0.5);
   /*width: 200px;*/

@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Envision</title>
+    <head>
+        <title>Envision</title>
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-OiWEn8WwtH+084y4yW2YhhH6z/qTSecHZuk/eiWtnvLtU+Z8lpDsmhOKkex6YARr" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      <% if current_user %>
-      <%= link_to "Log Out", logout_path, class: "btn btn-info" %> |
-      <%= link_to "Profile", user_path(current_user), class: "btn btn-success" %>
-      <% else %>
-      <%= link_to "Log In", login_path, class: "btn btn-success" %> |
-      <%= link_to "Sign Up", new_user_path, class: "btn btn-info" %>
-      <% end %>
-  </div>
-</nav>
-<%= yield %>
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-OiWEn8WwtH+084y4yW2YhhH6z/qTSecHZuk/eiWtnvLtU+Z8lpDsmhOKkex6YARr" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <% if current_user %>
+                <%= link_to "Envision", root_path, class: "btn btn-primary" %>
 
-</body>
+                <%= link_to "Log Out", logout_path, class: "btn btn-info" %>
+
+                <%= link_to "Profile", user_path(current_user), class: "btn btn-success" %>
+            <% else %>
+                <%= link_to "Envision", root_path, class: "btn btn-primary" %>
+
+                <%= link_to "Log In", login_path, class: "btn btn-success" %>
+
+                <%= link_to "Sign Up", new_user_path, class: "btn btn-info" %>
+                <% end %>
+            </div>
+        </nav>
+
+        <%= yield %>
+
+    </body>
 </html>
