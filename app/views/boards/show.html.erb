@@ -3,7 +3,7 @@
       <%= link_to "Back", user_path(current_user) %>
   </div>
 
-        <div class="panel panel-success col-md-3">
+        <div class="panel panel-success col-md-4">
             <div class="panel-heading">
                 <h3 class="panel-title">New</h3>
             </div>
@@ -15,9 +15,9 @@
         <% @cards.each do |card| %>
         <% if card.picture == "" %>
         <div class="row">
-            <div class="panel panel-danger col-md-3">
+            <div class="panel panel-danger col-md-4">
                 <div class="panel-body">
-                    <p><%= card.text %><br></p>
+                    <center><p id="text_card"><%= card.text %><br></p></center>
                     <%= link_to "Delete Card", delete_card_path(card.board, card), method: :delete %>
                 </div>
             </div>
@@ -25,11 +25,11 @@
 
     <% else %>
         <div class="row">
-            <div class="panel panel-info col-md-3">
+            <div class="panel panel-info col-md-4">
                 <div class="panel-body">
-                    <img src="<%= card.picture %>"/>
+                    <center><img src="<%= card.picture %>"/>
                     <br>
-                    <p><%= card.text %><br></p>
+                    <p id="photo_card"><%= card.text %><br></p></center>
                     <div class="card-action">
                         <%= link_to "Delete Card", delete_card_path(card.board, card), method: :delete %>
                     </div>

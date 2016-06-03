@@ -11,29 +11,21 @@
    margin-top: -30px;
  }
 
-/*.panel-body {
-  width: 600px;
-}*/
-.add-card {
-  background-color: rgba(26, 207, 251, 0.5);
-  /*width: 200px;*/
-  height: 350px;
-  margin-top: 30px;
-  margin-left: 30px;
-  padding-top: 50px;
-  text-align: center;
+.panel {
+  margin-left: 20px;
 }
-.card {
-  background-color: rgba(26, 207, 251, 0.5);
-  /*width: 200px;*/
-  height: 350px;
-  margin-top: 30px;
-  margin-left: 30px;
-  padding-top: 50px;
-  text-align: center;
+
+#home_panel {
+  margin-left: 150px;
 }
-.card-action {
-  padding-top: 100px;
+
+#text_card {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+}
+#photo_card {
+  font-family: 'Amatic SC', cursive;
+  font-size: 28px;
 }
 
 img {
