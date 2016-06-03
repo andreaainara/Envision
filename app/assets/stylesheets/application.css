@@ -3,6 +3,10 @@
  *= require_tree .
  *= require_self
  */
+.jumbotron {
+  background-image: image('envision_jumbotron_pic.png');
+}
+
 .panel-body {
   width: 600px;
 }
