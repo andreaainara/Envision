@@ -1,26 +1,43 @@
 <div class="container">
 
   <div class="row">
-    <div class="card col-md-3">
+    <div class="add-card col-md-3">
 
     <p><%= link_to new_card_path,class: "glyphicon glyphicon-plus-sign btn btn-default btn-lg" do %><% end %></p>
 
     </div>
 
-    <% @cards.each do |card| %>
-    <% if card.picture == nil %>
-    <div class="card col-md-3">
-      <p id="delete_link"><%= link_to "x", delete_card_path(card.board, card), method: :delete %></p>
-        <p><%= card.text %><br></p>
+  <% @cards.each do |card| %>
+    <% if card.picture == "" %>
+    <div class="row">
+      <div class="card col-md-3">
+          <p><%= card.text %><br></p>
+          <footer>
+          <div class="card-action">
+            <%= link_to "Delete Card", delete_card_path(card.board, card), method: :delete %>
+          </div>
+          <footer>
+      </div>
     </div>
+
     <% else %>
-    <div class="card col-md-3">
-      <p id="delete_link"><%= link_to "x", delete_card_path(card.board, card), method: :delete %></p>
-      <p><img src="<%= card.picture %>" class="height: 150px width:100px"/><br>
-        <p><%= card.text %><br></p>
-    </div>
+      <div class="row">
+         <div class="col-md-3">
+           <div class="card">
+             <div class="card-image">
+               <img src="<%= card.picture %>"/>
+             </div>
+             <div class="card-content">
+              <p><%= card.text %><br></p>
+             </div>
+             <div class="card-action">
+              <%= link_to "Delete Card", delete_card_path(card.board, card), method: :delete %>
+             </div>
+           </div>
+         </div>
+       </div>
     <% end %>
-    <% end %>
+  <% end %>
   </div>
 
 </div>

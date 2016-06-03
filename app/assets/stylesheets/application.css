@@ -6,23 +6,29 @@
 .panel-body {
   width: 600px;
 }
+.add-card {
+  background-color: rgba(26, 207, 251, 0.5);
+  /*width: 200px;*/
+  height: 350px;
+  margin-top: 30px;
+  margin-left: 30px;
+  padding-top: 50px;
+  text-align: center;
+}
 .card {
   background-color: rgba(26, 207, 251, 0.5);
   /*width: 200px;*/
   height: 350px;
   margin-top: 30px;
   margin-left: 30px;
-  padding-top: 150px;
+  padding-top: 50px;
   text-align: center;
 }
-.p {
-  padding-top: 150px;
-}
-#delete_link {
-  padding-top: 0px;
+.card-action {
+  padding-top: 100px;
 }
 
 img {
-  width: 100px;
-  height: 150px;
+  width: 230px;
+  height: 170px;
 }
