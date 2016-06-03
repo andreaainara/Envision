@@ -40,3 +40,10 @@ img {
   width: 230px;
   height: 170px;
 }
+
+.app_about {
+  word-wrap: break-word;
+}
+.about_img {
+  float: right;
+}
