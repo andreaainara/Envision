@@ -1,12 +1,6 @@
 class CardsController < ApplicationController
 before_action :set_board, only: [:show]
-before_action :set_card, only: [:show, :edit, :update, :destroy]
-
-
-  # def initialize
-  #   @@cards
-  #   @@cards = Card.all
-  # end
+before_action :set_card, only: [:show, :edit, :update]
 
 # I want the cards#create form to be in a modal,
 # so as to limit the number of pages...
@@ -52,7 +46,7 @@ before_action :set_card, only: [:show, :edit, :update, :destroy]
     @card = Card.find(params[:card_id])
     @card.board = @board
     @card.destroy
-    redirect_to board_path(@board)
+    redirect_to board_path(@board.user, @board)
   end
 
 
