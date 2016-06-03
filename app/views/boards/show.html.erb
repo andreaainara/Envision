@@ -1,43 +1,39 @@
 <div class="container">
 
-  <div class="row">
-    <div class="add-card col-md-3">
+        <div class="panel panel-success col-md-3">
+            <div class="panel-heading">
+                <h3 class="panel-title">New</h3>
+            </div>
+            <div class="panel-body">
+              <center><p><%= link_to new_card_path,class: "glyphicon glyphicon-plus-sign btn btn-success" do %><% end %></p></center>
+            </div>
+        </div>
 
-    <p><%= link_to new_card_path,class: "glyphicon glyphicon-plus-sign btn btn-default btn-lg" do %><% end %></p>
-
-    </div>
-
-  <% @cards.each do |card| %>
-    <% if card.picture == "" %>
-    <div class="row">
-      <div class="card col-md-3">
-          <p><%= card.text %><br></p>
-          <footer>
-          <div class="card-action">
-            <%= link_to "Delete Card", delete_card_path(card.board, card), method: :delete %>
-          </div>
-          <footer>
-      </div>
-    </div>
+        <% @cards.each do |card| %>
+        <% if card.picture == "" %>
+        <div class="row">
+            <div class="panel panel-danger col-md-3">
+                <div class="panel-body">
+                    <p><%= card.text %><br></p>
+                    <%= link_to "Delete Card", delete_card_path(card.board, card), method: :delete %>
+                </div>
+            </div>
+        </div>
 
     <% else %>
-      <div class="row">
-         <div class="col-md-3">
-           <div class="card">
-             <div class="card-image">
-               <img src="<%= card.picture %>"/>
-             </div>
-             <div class="card-content">
-              <p><%= card.text %><br></p>
-             </div>
-             <div class="card-action">
-              <%= link_to "Delete Card", delete_card_path(card.board, card), method: :delete %>
-             </div>
-           </div>
-         </div>
-       </div>
-    <% end %>
-  <% end %>
-  </div>
+        <div class="row">
+            <div class="panel panel-info col-md-3">
+                <div class="panel-body">
+                    <img src="<%= card.picture %>"/>
+                    <br>
+                    <p><%= card.text %><br></p>
+                    <div class="card-action">
+                        <%= link_to "Delete Card", delete_card_path(card.board, card), method: :delete %>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+            <% end %>
+        </div>
 
-</div>
+    </div>
