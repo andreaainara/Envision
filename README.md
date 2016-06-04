@@ -12,7 +12,8 @@ https://envision-app.herokuapp.com/
   * HTML/CSS
 
 ## Installation:
-Clone this repo
+* Clone this repo
+* Uncomment 'sqlite3' in the Gemfile
 ```
 bundle install
 rake db:create
