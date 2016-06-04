@@ -12,7 +12,7 @@ https://envision-app.herokuapp.com/
   * HTML/CSS
 
 ## Installation:
-Clonr this repo
+Clone this repo
 ```
 bundle install
 rake db:create
