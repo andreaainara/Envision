@@ -1,6 +1,12 @@
 <div class="jumbotron">
+  <% if current_user %>
+    <h1>Welcome Back!</h1>
+    <h3>Want to create some new boards today? <%= link_to "Let's Go!", new_board_path(current_user), class: "btn btn-success" %></h3>
+    <% else %>
     <h1>Welcome to Envision!</h1>
-    <h3>Where you can build vision boards for your peace of mind.</h3>
+    <h3>Where you can build vision boards for your peace of mind.</h3><br>
+    <%= link_to "Get Started Today!", new_user_path, class: "btn btn-info" %>
+    <% end %>
 </div>
 
     <div class="panel panel-success col-md-4" id="home_panel">
